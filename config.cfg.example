@@ -8,8 +8,8 @@ serviceid="rrd4j"
 # InfluxDB server
 influxserver="influx-server"
 influxport="8086"
-influxdatbase="openhab_db"
-influxuser="openhab"
-influxpw="AnotherSuperbPassword456-"
-importsize=100
+bucket="bucket"
+org="organisation"
+token="apitoken"
+importsize=1000
 sleeptime=5

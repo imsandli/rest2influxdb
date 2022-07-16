@@ -70,7 +70,8 @@ split -l $importsize ${itemname}.txt "${itemname}-"
 
 for i in ${itemname}-*
 do
-  curl -i -XPOST -u $influxuser:$influxpw "http://$influxserver:$influxport/write?db=$influxdatbase" --data-binary @$i
+  echo curl -i -XPOST --header "Authorization: Token ${token}" "http://$influxserver:$influxport/api/v2/write?org=${org}&bucket=${bucket}" --data-binary @$i
+  curl -i -XPOST --header "Authorization: Token ${token}" "http://$influxserver:$influxport/api/v2/write?org=${org}&bucket=${bucket}" --data-binary @$i
   echo "Sleep for $sleeptime seconds to let InfluxDB process the data..."
   sleep $sleeptime
 done
